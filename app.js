@@ -7,6 +7,12 @@ if (err) throw err;
 
 var obj = JSON.parse(data.toString());
 
+obj.wolkenkratzer.sort(function(a, b){
+return b.hoehe-a.hoehe});
+
+fs.writeFile('wolkenkratzer_sortiert.json', JSON.stringify(obj),function(err){
+
+if (err) throw err; 
 
 obj.wolkenkratzer.forEach(function(wolkenkratzer) {
 
@@ -16,7 +22,6 @@ console.log(chalk.blue('Höhe: '+wolkenkratzer.hoehe));
 console.log('------------------');
 
 			});
-
 });
 
-
+});
