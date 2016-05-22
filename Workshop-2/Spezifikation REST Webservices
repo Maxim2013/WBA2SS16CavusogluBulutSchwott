@@ -1,2 +1,5 @@
 Ressource | Methode | Semantik | Content-type(req) | Content-type(res)
 ----------|---------|----------|-------------------|------------------
+/equipment/GET |Liste aller Equipments| text/plain |application/json
+
+
