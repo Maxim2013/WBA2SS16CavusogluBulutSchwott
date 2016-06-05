@@ -52,8 +52,9 @@ app.post('/equipment', jsonParser, function (req, res){
       console.log ("Equipment anlegen");
      //Datenstruktur hinzufügen, durch jsonParser wird der body geparsed und auf die Daten in dem body kann man über diesen req.body Befehl zurückgreifen
     equipment.push(req.body);
-    
-    res.send('Added!');
+    req.body;
+
+    //res.send('Added!');
       console.log(equipment);
 
 });
