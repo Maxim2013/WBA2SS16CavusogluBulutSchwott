@@ -1,0 +1,134 @@
+// Tongeräte
+
+{
+   "ton":[
+      //Audiorecorder
+      {
+         "id":"00100",
+         "name":"302 3-KANAL STEREO-KOMPAKTMISCHER",
+         "merkmale":"3 Eingänge, sym. XLR, Mic/Line, stufenloser Gain 22-66 dB
+                     12/48 V Ph & 12 V T , Lo-Cut 80/160 Hz, 6 dB/Okt., Pan L-C-R
+                     maximale Verstärkung In zu Out 75 dB
+                     3 Kanal-und 2 Summenlimiter m. eigenen Peak/Lim-LEDs 20-30 KHz +/- 0.5 dB, EIN: -126 dBu, S/N 115 dB, THD+N 0,009 %
+                     Output: XLR, el. sym., max. Pegel 18 dBu / 600 Ohm
+                     sym. Tape-Out, regelbarer Tape-Return
+                     Tape-Return als zusätzliche Eingänge auf Mix-Bus routbar
+                     mit anderen Sound Devices Mischern kaskadierbar"
+         
+      },
+
+      {  
+         "id":"00200",
+         "name":"552 5-KANAL MISCHER MIT 2-SPUR SD-RECORDER",
+         "merkmale":"5 Hochleistungs-Mikrofoneingänge mit 2-stufiger Gain-Kontrolle, Limiter, variablem High-Pass und Einzel-Monitoring
+                     5x Direct Out, Pre- oder Post-Fader schaltbar
+                     Symmetrische Ausgänge mit Anschlüssen für XLR, 10pol. Hirose und TA3
+                     AES/EBU Output Option, entweder auf XLR oder 10pol. Multipin, 2 Anschlüsse für 4 digitale Kanäle, Samplingrate bis 96 kHz
+                     Integrierter Digitalrecorder mit einfacher Bedienung für Aufnahmen auf SD- oder SDHC-Medien
+                     Aufnahme von 2 Spuren im unkomprimierten Broadcast-WAV- oder komprimierten MP3-Format, Samplingrate bis 96 kHz
+                     Eingang für Timecode
+                     Flexible Anzeigemodi der LED-Meter, incl. Zoomfunktion zur präzisen Anzeige/Regelung nahe 0dBfs
+                     Eine Stimme im Kopfhörer führt durch das Setup und sagt wichtige Statusmeldungen an
+                     Leichte, robuste Konstruktion aus Metall-Kohlefaser Compound und Aluminium
+                     Abgedichtetes Frontpanel zum Schutz vor Wettereinflüssen
+                     Stromversorgung durch 4 Mignonzellen (AA) oder externes Netzteil 10-18V DC"
+         
+      },
+
+      //Kopfhörer
+
+      {  
+         "id":"00311",
+         "name":"DT 100 STUDIO-KOPFHÖRER",
+         "merkmale":"
+                              Übertragungsart ................. : Kabelgebunden
+                              Bauweise (Arbeitsprinzip) ....... : Geschlossen
+                              Kopfhörer Impedanz .............. : 16 Ohm
+                              Übertragungsbereich Kopfhörer ... : 30 - 20.000 Hz
+                              Kennschalldruckpegel ............ : 94 dB
+                              Bauform ......................... : Ohrumschließend
+                              Kabel & Stecker ................. : Gestrecktes Anschlusskabel
+                                    mit Stereoklinkenstecker 3,5 mm
+                                    und Adapter 6,35 mm
+                              Nettogewicht ohne Verpackung .... : 350 g"
+         
+      },
+
+      {  
+         "id":"00322",
+         "name":"DT 100 STUDIO-KOPFHÖRER",
+         "merkmale":"
+                              Übertragungsart ................. : Kabelgebunden
+                              Bauweise (Arbeitsprinzip) ....... : Geschlossen
+                              Kopfhörer Impedanz .............. : 400 Ohm
+                              Übertragungsbereich Kopfhörer ... : 30 - 20.000 Hz
+                              Kennschalldruckpegel ............ : 94 dB
+                              Bauform ......................... : Ohrumschließend
+                              Kabel & Stecker ................. : Gestrecktes Anschlusskabel
+                                    mit Stereoklinkenstecker 3,5 mm
+                                    und Adapter 6,35 mm
+                              Nettogewicht ohne Verpackung .... : 350 g"
+         
+      },
+
+      // Mikrofon
+      {
+         "id":"04011",
+         "name":"M 130 DYNAMISCHES DOPPELBÄNDCHEN",
+         "merkmale":"
+                              Wandlerprinzip .................. : Bändchen (dynamisch)
+                              Richtcharakteristik Mikrofon .... : Acht
+                              Übertragungsbereich Mikrofone ... : 40 - 18,000 Hz
+                              Abmessung ....................... : Länge: 128 mm
+                                    Schaftdurchmesser: 23 mm
+                                    Kopfdurchmesser: 38.5 mm
+                              Nettogewicht ohne Verpackung .... : 150 g"
+         
+
+      },
+
+      {
+         "id":"04123",
+         "name":"M 201 TG DYNAMISCHES MIKROFON ",
+         "merkmale":"
+                              Wandlerprinzip .................. : Tauchspule (dynamisch)
+                              Richtcharakteristik Mikrofon .... : Hyperniere
+                              Übertragungsbereich Mikrofone ... : 40 - 18.000 Hz
+                              Abmessung ....................... : 24 x 160 mm
+                              Nettogewicht ohne Verpackung .... : 302 g"
+         
+      }
+
+      // Mikrofonangel
+      {
+         "id":"012345",
+         "name":"MZA 717 MIKROFONANGEL",
+         "länge":"61 bis 159cm"
+      }
+
+      {
+         "id":"012300",
+         "name":"MZA 718 MIKROFONANGEL",
+         "länge":"93 bis 320cm"
+      }
+
+      // Tonkabel
+
+      {
+         "id":"1111100",
+         "name":"AMBIENT SPIRAL-MIKROFONKABEL STEREO XLR-5",
+         "länge":"410cm"
+      }
+
+      {
+         "id":"1122100",
+         "name":"AMBIENT SPIRAL-MIKROFONKABEL MONO XLR-3",
+         "länge":"410cm"
+      }
+
+   ]
+
+
+
+}
+

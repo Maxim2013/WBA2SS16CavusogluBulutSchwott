@@ -1,0 +1,53 @@
+// Beleuchtung
+
+{
+   "beleuchtung":[
+      {
+         "id":"10000",
+         "name":"TecTake 3er SET Profi",
+         "infos":"
+                  Leuchtmittel: ca. 55 W, 5500 K (Dauerlicht)
+                  Stativ ausziehbar von ca. 78 cm bis max. 350 cm (mit Galgen)
+                  Softbox: ca. 40 x 40 cm
+                  Kabellänge: ca. 260 cm
+                  Gewicht: ca. 2 kg je Studioleuchte"
+         
+      },
+
+      {
+         "id":"12007",
+         "name":"TecTake 2x Profi Fotostudio",
+         "infos":"
+                  Lampe: ca. 55 W, 5500 K (Dauerlicht)
+                  Stativ ausziehbar von ca. 90 cm bis max. 215 cm
+                  Kabellänge: ca. 2,60 m
+                  Lampenschirm Ø: ca. 27 cm
+                  Lampenschirm Tiefe: ca. 15 cm
+                  Gewicht: ca. 1,6 Kg"
+         
+      },
+
+
+      {
+         "id":"12577",
+         "name":"Kaiser Fototechnik Desktop-Beleuchtungs-Set 5862",
+         "infos":"
+                  zwei Reflektorleuchten für Aufnahmelampen bis max. 250 W
+                  mit Keramikfassung E27
+                  abnehmbarem Reflektor (ø 27 cm)
+                  Neigegelenk
+                  Reflexschirmhalterung
+                  Ein-/Aus-Schalter
+                  Zuleitung: ca. 3,80 m 
+                  zwei abnehmbare Stoffbespannungen (Diffusor für weicheres Licht)
+                  zwei Desktop-Leuchtenstativen (5859)
+                  Einstellhöhe 35 – 70 cm."
+
+      }
+
+   ]
+
+
+
+}
+

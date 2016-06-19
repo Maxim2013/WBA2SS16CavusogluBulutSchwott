@@ -1,0 +1,53 @@
+// Kameras
+
+{
+   "kameras":[
+      {
+         "id":"00001",
+         "bezeichnung":"Nikon D5300",
+         "sensor":"halformat",
+         "megapixel":24
+      },
+
+      {  
+         "id":"00002",
+         "bezeichnung":"Nikon D810",
+         "sensor":"vollformat",
+         "megapixel":36.3
+      },
+
+      {  
+         "id":"00003",
+         "bezeichnung":"Nikon D5",
+         "sensor":"vollformat",
+         "megapixel":24
+      },
+
+      {  
+         "id":"00010",
+         "bezeichnung":"Panasonic HC-X1000",
+         "sensor":"1/2 3-Zoll BSI Sensor",
+         "aufloesung":"3.840 x 2.160"
+      },
+
+      {
+         "id":"00020",
+         "bezeichnung":"Sony PXW-FS7 / FS7K",
+         "sensor":"4K-Super-35-Exmor",
+         "aufloesung":"3.840 x 2.160"
+
+      },
+
+      {
+         "id":"00030",
+         "bezeichnung":"NEX-FS700RH",
+         "sensor":"Super-35-mm-Exmor-CMOS",
+         "aufloesung":"3.840 x 2.160"
+      }
+
+   ]
+
+
+
+}
+
