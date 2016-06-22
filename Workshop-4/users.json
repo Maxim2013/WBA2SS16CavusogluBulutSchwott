@@ -4,28 +4,28 @@
    "users":[
 
       {
-         "id":"11095958",
+         
          "name":"Mark Schwott",
          "studiengang":"Medieninformatik",
          "semester":"4",
-         "funktion":"Aministrator"
+         "funktion":"Administrator"
       },
 
 
       {
-         "id":"11081234",
+         
          "name":"Aysenur Cavusoglu",
          "studiengang":"Medieninformatik",
          "semester":"6",
-         "funktion":"Aministrator"
+         "funktion":"Administrator"
       },
 
       {
-         "id":"11085678",
+         
          "name":"Esranur Bulut",
          "studiengang":"Medieninformatik",
          "semester":"6",
-         "funktion":"Aministrator"
+         "funktion":"Administrator"
       },
 
 

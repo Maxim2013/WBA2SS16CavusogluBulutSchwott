@@ -5,7 +5,7 @@ var redis = require('redis');
 var http = require('http');
 
 // Starten der Redis Datenbank
-var db = redis.createClient();
+var client = redis.createClient();
 
 //jsonParser anlegen (ist ein Teil der bodyParser und deswegen nicht mit require) und gibt einen Parser zurück, der mit Json-Daten arbeitet
 var jsonParser = bodyParser.json();
@@ -34,10 +34,10 @@ app.get("/equipment/kameras", function AlleKamerasAusgeben(req, res){
            });
 
             kameras = kameras.map(function(kameras){
-                return;
-                //return {kameras/:id: kameras.id, bezeichnung: kameras.bezeichnung, sensor: kameras.sensor, auflösung: kameras.megapixel};
+        
+                return {id: kameras.id, bezeichnung: kameras.bezeichnung, sensor: kameras.sensor, aufloesung: kameras.megapixel}; //Ein String
             });
-            res.json(kamera);
+            res.json(kameras);
         });
     });
 });
@@ -46,26 +46,23 @@ app.get("/equipment/kameras", function AlleKamerasAusgeben(req, res){
 app.post('/equipment/kameras', jsonParser, function (req, res){
       var newFotoCam = req.body;
 
-        client.incr('kameras:kameras', function(err, rep){
-            newFotoCam.kameras = rep;
-            client.set('kameras:' + newFotoCam.kameras, JSON.stringify(newFotoCam), function(err, rep){
-                res.json(newfotoCam);
+        client.incr('id:kameras', function(err, rep){
+            newFotoCam.id = rep;                                // eine id wird zugewiesen
+            client.set('kameras:' + newFotoCam.id, JSON.stringify(newFotoCam), function(err, rep){
+                res.json(newFotoCam);
             });
         });
     });
 
 
-/*app.put('/equipment/kameras/:id', function (req, res) {
-  res.send('Kamera aktualisiert');
-}); */
 
-app.put('/equipment/kameras/:id', function KameraInfoBearbeiten (req, res) {
-  client.del('kameras:'+req.params.kameras/:id, function(err, rep){
+app.put('/equipment/kameras/:id', jsonParser, function KameraInfoBearbeiten (req, res) {
+  client.del('kameras:'+req.params.id, function(err, rep){
 
-        if (rep == 1) {KameraInfoBearbeiten 
+        if (rep == 1) {
             var updatedCam = req.body;
-            updatedCam.kameras/:id = req.params.kameras/:id;
-            client.set('kameras:'+req.params.kameras/:id, JSON.stringify(updatedCam), function(err, rep) {
+            updatedCam.id = req.params.id;
+            client.set('kameras:'+req.params.id, JSON.stringify(updatedCam), function(err, rep) {
                 res.json(updatedCam);
             });
 
@@ -77,25 +74,25 @@ app.put('/equipment/kameras/:id', function KameraInfoBearbeiten (req, res) {
 });
 
 
-app.get('/equipment/equipment/kameras/:id', function kameraAusgeben(req, res){
-     client.get('kameras:' + req.params.kameras/:id, function(err, rep){
+app.get('/equipment/kameras/:id', function kameraAusgeben(req, res){
+     client.get('kameras:' + req.params.id, function(err, rep){
         if(rep) {
             res.type('json').send(rep);
         }
         else {
-            res.status(404).type('text').send("Die Kamera mit der ID " + req.params.kameras/:id +  " ist nicht in der Datenbank");
+            res.status(404).type('text').send("Die Kamera mit der ID " + req.params.id +  " ist nicht in der Datenbank");
         }
     });
 });
 
 
 app.delete('/equipment/equipment/kameras/:id', function (req, res) {
-client.del('kameras:'+req.params.kameras/:id, function(err, rep){
+client.del('kameras:'+req.params.id, function(err, rep){
         if(rep == 1){
-            res.status(200).type('text').send('OK'+ req.params.kameras/:id + 'gelöscht');
+            res.status(200).type('text').send('OK'+ req.params.id + 'gelöscht');
         }
         else{
-            res.status(404).type('text').send('Das Kamera mit der ID ' + req.params.kameras/:id + ' wurde nicht gefunden');
+            res.status(404).type('text').send('Das Kamera mit der ID ' + req.params.id + ' wurde nicht gefunden');
         }
     });
 });
@@ -115,37 +112,38 @@ app.get("/equipment/ton", function AlleTongeräteAusgeben(req, res){
 
         client.mget(rep, function(err, rep){
            rep.forEach(function(val){
-               kameras.push(JSON.parse(val));
+               ton.push(JSON.parse(val));
            });
 
             ton = ton.map(function(ton){
-                return {ton/:id: ton.id, Name: ton.name, Merkmale: ton.merkmale, Länge: ton.länge};
+                return {id: ton.id, Equipment:ton.equipment, Name: ton.name, Merkmale: ton.merkmale, Länge: ton.länge, Nummer: ton.nummer};
             });
-            res.json(kamera);
+            res.json(ton);
         });
     });
 });
 
 
+
 app.post('/equipment/ton', jsonParser, function (req, res){
       var newTon = req.body;
 
-        client.incr('ton:ton', function(err, rep){
-            newTon.ton = rep;
-            client.set('ton:' + newTon.ton, JSON.stringify(newFotoCam), function(err, rep){
+        client.incr('id:ton', function(err, rep){
+            newTon.id = rep;
+            client.set('ton:' + newTon.id, JSON.stringify(newTon), function(err, rep){
                 res.json(newTon);
             });
         });
     });
 
 
-app.put('/equipment/ton/:id', function TonInfoBearbeiten (req, res) {
-  client.del('ton:'+req.params.ton/:id, function(err, rep){
+app.put('/equipment/ton/:id', jsonParser, function TonInfoBearbeiten (req, res) {
+  client.del('ton:'+req.params.id, function(err, rep){
 
-        if (rep == 1) {TonInfoBearbeiten 
+        if (rep == 1) { 
             var updatedTon = req.body;
-            updatedCam.ton/:id = req.params.ton/:id;
-            client.set('ton:'+req.params.ton/:id, JSON.stringify(updatedCam), function(err, rep) {
+            updatedTon.id = req.params.id;
+            client.set('ton:'+req.params.id, JSON.stringify(updatedTon), function(err, rep) {
                 res.json(updatedTon);
             });
 
@@ -158,35 +156,33 @@ app.put('/equipment/ton/:id', function TonInfoBearbeiten (req, res) {
 
 
 app.get('/equipment/ton/:id', function kameraAusgeben(req, res){
-     client.get('ton:' + req.params.ton/:id, function(err, rep){
+     client.get('ton:' + req.params.id, function(err, rep){
         if(rep) {
             res.type('json').send(rep);
         }
         else {
-            res.status(404).type('text').send("Das Tonequipment mit der ID " + req.params.kameras/:id +  " ist nicht in der Datenbank");
+            res.status(404).type('text').send("Das Tonequipment mit der ID " + req.params.id +  " ist nicht in der Datenbank");
         }
     });
 });
 
 
 app.delete('/equipment/ton/:id', function (req, res) {
-client.del('ton:'+req.params.ton/:id, function(err, rep){
+client.del('ton:'+req.params.id, function(err, rep){
         if(rep == 1){
-            res.status(200).type('text').send('OK'+ req.params.ton/:id + 'gelöscht');
+            res.status(200).type('text').send('OK' + req.params.id + 'gelöscht');
         }
         else{
-            res.status(404).type('text').send('Das Tonequipment mit der ID ' + req.params.ton/:id + ' wurde nicht gefunden');
+            res.status(404).type('text').send('Das Tonequipment mit der ID ' + req.params.id + ' wurde nicht gefunden');
         }
     });
 });
 
-
-
-// Ressource: Beleuchtung
+// Ressource Beleuchtung
 
 app.get("/equipment/beleuchtung", function AlleLeuchtgeräteAusgeben(req, res){
     client.keys('beleuchtung:*', function(err, rep){
-        var bel = [];
+        var beleuchtung = [];
 
         if(rep.length == 0) {
             res.json(bel);
@@ -198,8 +194,8 @@ app.get("/equipment/beleuchtung", function AlleLeuchtgeräteAusgeben(req, res){
                beleuchtung.push(JSON.parse(val));
            });
 
-            beleuchtung = beleuchtung.map(function(ton){
-                return {beleuchtung/:id: beleuchtung.id, Name: beleuchtung.name, Merkmale: beleuchtung.infos};
+            beleuchtung = beleuchtung.map(function(beleuchtung){
+                return {id: beleuchtung.id, Name: beleuchtung.name, Merkmale: beleuchtung.infos};
             });
             res.json(beleuchtung);
         });
@@ -210,22 +206,22 @@ app.get("/equipment/beleuchtung", function AlleLeuchtgeräteAusgeben(req, res){
 app.post('/equipment/beleuchtung', jsonParser, function (req, res){
       var newBel = req.body;
 
-        client.incr('beleuchtung:beleuchtung', function(err, rep){
-            newBel.beleuchtung = rep;
-            client.set('beleuchtung:' + newBel.beleuchtung, JSON.stringify(newFotoCam), function(err, rep){
+        client.incr('id:beleuchtung', function(err, rep){
+            newBel.id = rep;                                            //Hier wird eine ID zugewiesen
+            client.set('beleuchtung:' + newBel.id, JSON.stringify(newBel), function(err, rep){
                 res.json(newBel);
             });
         });
     });
 
 
-app.put('/equipment/beleuchtung/:id', function TonInfoBearbeiten (req, res) {
-  client.del('beleuchtung:'+req.params.beleuchtung/:id, function(err, rep){
+app.put('/equipment/beleuchtung/:id', jsonParser, function TonInfoBearbeiten (req, res) {
+  client.del('beleuchtung:'+req.params.id, function(err, rep){
 
-        if (rep == 1) {LeuchtInfoBearbeiten 
+        if (rep == 1) { 
             var updatedBel = req.body;
-            updatedCam.beleuchtung/:id = req.params.beleuchtung/:id;
-            client.set('beleuchtung:'+req.params.beleuchtung/:id, JSON.stringify(updatedCam), function(err, rep) {
+            updatedBel.id = req.params.id;
+            client.set('beleuchtung:' +req.params.id, JSON.stringify(updatedBel), function(err, rep) {
                 res.json(updatedBel);
             });
 
@@ -238,24 +234,24 @@ app.put('/equipment/beleuchtung/:id', function TonInfoBearbeiten (req, res) {
 
 
 app.get('/equipment/beleuchtung/:id', function lichtgerätAusgeben(req, res){
-     client.get('beleuchtung:' + req.params.beleuchtung/:id, function(err, rep){
+     client.get('beleuchtung:' + req.params.id, function(err, rep){
         if(rep) {
             res.type('json').send(rep);
         }
         else {
-            res.status(404).type('text').send("Das Lichtquipment mit der ID " + req.params.beleuchtung/:id +  " ist nicht in der Datenbank");
+            res.status(404).type('text').send("Das Lichtquipment mit der ID " + req.params.id +  " ist nicht in der Datenbank");
         }
     });
 });
 
 
 app.delete('/equipment/beleuchtung/:id', function (req, res) {
-client.del('beleuchtung:'+req.params.ton/:id, function(err, rep){
+client.del('beleuchtung:'+req.params.id, function(err, rep){
         if(rep == 1){
-            res.status(200).type('text').send('OK'+ req.params.beleuchtung/:id + 'gelöscht');
+            res.status(200).type('text').send('OK'+ req.params.id + 'gelöscht');
         }
         else{
-            res.status(404).type('text').send('Das Lichtquipment mit der ID ' + req.params.beleuchtung/:id + ' wurde nicht gefunden');
+            res.status(404).type('text').send('Das Lichtquipment mit der ID ' + req.params.id + ' wurde nicht gefunden');
         }
     });
 });
@@ -264,12 +260,13 @@ client.del('beleuchtung:'+req.params.ton/:id, function(err, rep){
 
 // Ressource: User
 
+
 app.get("/users", function AlleUsersAusgeben(req, res){
     client.keys('users:*', function(err, rep){
-        var user = [];
+        var users = [];
 
         if(rep.length == 0) {
-            res.json(user);
+            res.json(users);
             return;
         }
 
@@ -278,8 +275,9 @@ app.get("/users", function AlleUsersAusgeben(req, res){
                users.push(JSON.parse(val));
            });
 
-            user = user.map(function(ton){
-                return {users/:id: users.id, Name: users.name, Studiengang: users.studiengang, Semester: users.semester, Funktion: users.funktion};
+            users = users.map(function(users){
+
+                return {id: users.id, Name: users.name, Studiengang: users.studiengang, Semester: users.semester, Funktion: users.funktion};
             });
             res.json(users);
         });
@@ -290,22 +288,22 @@ app.get("/users", function AlleUsersAusgeben(req, res){
 app.post('/users', jsonParser, function (req, res){
       var newUsr = req.body;
 
-        client.incr('users:users', function(err, rep){
-            newUsr.users = rep;
-            client.set('users:' + newUsr.users, JSON.stringify(newUsr), function(err, rep){
+        client.incr('id:users', function(err, rep){
+            newUsr.id = rep;                                //Hier wird eine ID zugewiesen
+            client.set('users:' + newUsr.id, JSON.stringify(newUsr), function(err, rep){
                 res.json(newUsr);
             });
         });
     });
 
 
-app.put('/users/:id', function UserInfoBearbeiten (req, res) {
-  client.del('users:'+req.params.users/:id, function(err, rep){
+app.put('/users/:id', jsonParser, function UserInfoBearbeiten (req, res) {
+  client.del('users:'+req.params.id, function(err, rep){
 
         if (rep == 1) {UserInfoBearbeiten 
             var updatedUsr = req.body;
-            updatedUsr.users/:id = req.params.users/:id;
-            client.set('users:'+req.params.users/:id, JSON.stringify(updatedUsr), function(err, rep) {
+            updatedUsr.id = req.params.id;
+            client.set('users:'+req.params.id, JSON.stringify(updatedUsr), function(err, rep) {
                 res.json(updatedUsr);
             });
 
@@ -318,24 +316,24 @@ app.put('/users/:id', function UserInfoBearbeiten (req, res) {
 
 
 app.delete('/users/:id', function (req, res) {
-client.del('users:'+req.params.users/:id, function(err, rep){
+client.del('users:'+req.params.id, function(err, rep){
         if(rep == 1){
-            res.status(200).type('text').send('OK'+ req.params.users/:id + 'gelöscht');
+            res.status(200).type('text').send('OK'+ req.params.id + 'gelöscht');
         }
         else{
-            res.status(404).type('text').send('Der User mit der ID ' + req.params.users/:id + ' wurde nicht gefunden');
+            res.status(404).type('text').send('Der User mit der ID ' + req.params.id + ' wurde nicht gefunden');
         }
     });
 });
 
 
 app.get('/users/:id', function userAusgeben(req, res){
-     client.get('users:' + req.params.users/:id, function(err, rep){
+     client.get('users:' + req.params.id, function(err, rep){
         if(rep) {
             res.type('json').send(rep);
         }
         else {
-            res.status(404).type('text').send("Der User mit der ID " + req.params.users/:id +  " ist nicht in der Datenbank");
+            res.status(404).type('text').send("Der User mit der ID " + req.params.id +  " ist nicht in der Datenbank");
         }
     });
 });
@@ -358,7 +356,7 @@ app.get("/users/:id/kommentare", function AlleUserskommentareAusgeben(req, res){
            });
 
             userkom = userkom.map(function(ton){
-                return {users/:id: users.id, Kommentar: users.kommentar};
+                return {id: users.id, Kommentar: users.kommentar};
             });
             res.json(users);
         });
@@ -366,13 +364,13 @@ app.get("/users/:id/kommentare", function AlleUserskommentareAusgeben(req, res){
 });
 
 
-app.put('/users/:id/kommentare', function UserKommentarBearbeiten (req, res) {
-  client.del('users:'+req.params.users/:id, function(err, rep){
+app.put('/users/:id/kommentare', jsonParser, function UserKommentarBearbeiten (req, res) {
+  client.del('users:'+req.params.id, function(err, rep){
 
-        if (rep == 1) {UserKommentarBearbeiten 
+        if (rep == 1) { 
             var updatedUsr = req.body;
-            updatedUsr.users/:id/kommentare = req.params.users/:id/kommentare;
-            client.set('users:'+req.params.users/:id/kommentare, JSON.stringify(updatedUsr), function(err, rep) {
+            //updatedUsr.id/kommentare = req.params.id/kommentare;
+            client.set('users:'+req.params.id, JSON.stringify(updatedUsr), function(err, rep) {
                 res.json(updatedUsr);
             });
 
@@ -385,12 +383,12 @@ app.put('/users/:id/kommentare', function UserKommentarBearbeiten (req, res) {
 
 
 app.delete('/users/:id/kommentare', function (req, res) {
-client.del('users:'+req.params./users/:id/kommentare, function(err, rep){
+client.del('users:'+req.params.id, function(err, rep){
         if(rep == 1){
-            res.status(200).type('text').send('OK'+ req.params.users/:id/kommentare + 'gelöscht');
+            res.status(200).type('text').send('OK'+ req.params.id + 'gelöscht');
         }
         else{
-            res.status(404).type('text').send('Das Kommentar vom User mit der ID ' + req.params./users/:id/kommentare + ' wurde nicht gefunden');
+            res.status(404).type('text').send('Das Kommentar vom User mit der ID ' + req.params.id + ' wurde nicht gefunden');
         }
     });
 });
@@ -400,3 +398,4 @@ client.del('users:'+req.params./users/:id/kommentare, function(err, rep){
 
 // App läuft über Prot 3000
 app.listen(3000);
+console.log('Listening on http://localhost:3000');
