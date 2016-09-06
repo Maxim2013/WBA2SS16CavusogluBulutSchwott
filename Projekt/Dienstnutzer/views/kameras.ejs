@@ -27,19 +27,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                     <a class="navbar-brand" href="/" style="font-weight:bold; color:black; ">Rent a Gadget</a>
+                     <a class="navbar-brand" href="/" style="font-weight:bold; color:black; ">EMA</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#">&nbsp;&nbsp;</a></li>
-                        <li><a href="/kameras">Kameras</a></li>
+                        <li><a href="/equipment/kameras">Kameras</a></li>
+                        <li><a href="/equipment/beleuchtung">Beleuchtung</a></li>
+                        <li><a href="/equipment/ton">Ton</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/Nachrichten">Nachrichten</a></li>
-                        <li><a href="/postequipment">Equipment ausleihen</a></li>
-                        <li><a href="/Login">Login</a></li>
-                        <li><a href="/updateProfile">Dein Profil</a></li>
+                        <li><a href="/nachrichtFaye">Nachrichten</a></li>
+                        <li><a href="/updateProfile">Deine Seite</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -50,7 +50,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Kameras</h1>
-        <p>Hier findest Du alle Kameras zum ausleihen! Du willst selbst ein Objektiv zum Verleihen einstellen?<br> Kontaktiere den Besitzer, wenn du das Gadget haben willst, indem du auf ihn klickst!</p>
+        <p>Hier findest Du alle Kameras zum Ausleihen! </p>
       </div>
     </div>
       
@@ -58,25 +58,20 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Hersteller</th>
-                <th>Modell</th>
-                <th>Typ</th>
-                <th>Megapixel</th>
-                <th>Brennweite</th>
-                <th>Verfügbar</th>
+                <th>k_id</th>
+                <th>Bezeichnung</th>
+                <th>Sensor</th>
+                <th>Aufloesung</th>
               </tr>
             </thead>
             <tbody>
                 <% for(var j = 0; j < kameras.length; j++){
                 %> <tr>
-                        <td> <%= kameras[j].o_id %></td>
-                        <td> <%= kameras[j].hersteller %></td>
-                        <td> <%= kameras[j].modell %></td>
-                        <td> <%= kameras[j].typ %></td>
-                        <td> <%= kameras[j].megapixel %></td>
-                        <td> <%= kameras[j].verfugbar %></td>
-                        <td> <a href="http://localhost:3001/profile/<%= kameras[j].u_id %>"><%= kameras[j].u_id %></a></td>
+                        <td> <%= kameras[j].k_id %></td>
+                        <td> <%= kameras[j].Bezeichnung %></td>
+                        <td> <%= kameras[j].Sensor %></td>
+                        <td> <%= kameras[j].Aufloesung %></td>
+                        <td> <a href="http://localhost:3001/<%= kameras[j].k_id %>"><%= kameras[j].k_id %></a></td>
                     </tr><%
                     }
                 %>

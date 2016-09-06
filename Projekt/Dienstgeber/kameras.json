@@ -5,19 +5,19 @@
       {
          "bezeichnung":"Nikon D5300",
          "sensor":"halformat",
-         "megapixel":24
+         "aufloesung":"24 Megapixel"
       },
 
       {  
          "bezeichnung":"Nikon D810",
          "sensor":"vollformat",
-         "megapixel":36.3
+         "aufloesung":"36.3 Megapixel"
       },
 
       {  
          "bezeichnung":"Nikon D5",
          "sensor":"vollformat",
-         "megapixel":24
+         "aufloesung":"24 Megapixel"
       },
 
       {  

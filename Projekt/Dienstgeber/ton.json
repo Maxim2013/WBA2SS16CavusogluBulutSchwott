@@ -14,7 +14,7 @@
       {  
          "equipment":"Audiorecorder",
          "name":"552 5-KANAL MISCHER MIT 2-SPUR SD-RECORDER",
-         "merkmale":"5 Hochleistungs-Mikrofoneingänge mit 2-stufiger Gain-Kontrolle",
+         "merkmale":"5 Hochleistungs-Mikrofoneingaenge mit 2-stufiger Gain-Kontrolle",
          "nummer":456
          
       },
@@ -22,9 +22,9 @@
       //Kopfhörer
 
       {  
-         "equipment":"Kopfhörer",
-         "name":"DT 100 STUDIO-KOPFHÖRER",
-         "merkmale":"Übertragungsbereich Kopfhörer-30 - 20.000 Hz, Kennschalldruckpegel-94dB",
+         "equipment":"Kopfhoerer",
+         "name":"DT 100 STUDIO-KOPFHOERER",
+         "merkmale":"Uebertragungsbereich Kopfhoerer-30 - 20.000 Hz, Kennschalldruckpegel-94dB",
          "nummer":789
          
       },
@@ -57,14 +57,14 @@
       {
          "equipment":"Mikrofonangel",
          "name":"MZA 717 MIKROFONANGEL",
-         "laenge":"61 bis 159cm",
+         "merkmale":"Laenge: 61 bis 159cm",
          "nummer":100
       },
 
       {
          "equipment":"Mikrofonangel",
          "name":"MZA 718 MIKROFONANGEL",
-         "laenge":"93 bis 320cm",
+         "merkmale":"Laenge: 93 bis 320cm",
          "nummer":200
       },
 
@@ -73,14 +73,14 @@
       {
          "equipment":"Tonkabel",
          "name":"AMBIENT SPIRAL-MIKROFONKABEL STEREO XLR-5",
-         "laenge":"410cm",
+         "merkmale":"Laenge: 410cm",
          "nummer":3001
       },
 
       {
          "equipment":"Tonkabel",
          "name":"AMBIENT SPIRAL-MIKROFONKABEL MONO XLR-3",
-         "laenge":"410cm",
+         "merkmale":"Laenge: 410cm",
          "nummer":4002
       }
 

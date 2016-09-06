@@ -15,6 +15,9 @@
       
   </head>
   <body>
+
+    <img src="../views/public/th-koeln-logo.png" alt="eine grafik" width="129" height="90" align="left">
+    
       <div class="container">
       <!-- Fixed Nav Bar -->
          <nav class="navbar navbar-default">
@@ -33,15 +36,17 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#">&nbsp;&nbsp;</a></li>
-                        <li><a href="/kameras">Kameras</a></li>
-                        <li><a href="/beleuchtung">Beleuchtung</a></li>
-                        <li><a href="/ton">Ton</a></li>
+                        <li><a href="/equipment/kameras">Kameras</a></li>
+                        <li><a href="/equipment/beleuchtung">Beleuchtung</a></li>
+                        <li><a href="/equipment/ton">Ton</a></li>
+                        
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/nachrichten">Nachrichten</a></li>
-                        <li><a href="/postequipment">Equipment ausleihen</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/updateProfile">Dein Profil</a></li>
+
+                      
+                        <li><a href="/users">Mitarbeiter</a></li>
+                        <li><a href="/nachrichtFaye">Nachrichten</a></li>
+                        <li><a href="/updateProfile">Deine Seite</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -51,11 +56,11 @@
           <!-- Main -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Willkommen im MI-Verleih!</h1>
-        <p>Öffnungszeiten: 
-          Montags: 09-13 Uhr
-          Mittwochs: 12-16 Uhr
-          Freitags: 11-13 Uhr
+         <h1>Willkommen im MI-Verleih!</h1>
+         <p><h2>Öffnungszeiten:</h2> 
+          <lu><h3>Montags: 09-13 Uhr</h3></lu>
+          <lu><h3>Mittwochs: 12-16 Uhr</h3></lu>
+          <lu><h3>Freitags: 11-13 Uhr</h3></lu>
         </p>
       </div>
     </div>
@@ -65,12 +70,19 @@
         <div class="col-md-4">
           <h2>Kameras</h2>
 
-          <p><a class="btn btn-default" href="/kameras" role="button">zu allen Kameras &raquo;</a></p>
+          <p><a class="btn btn-default" href="/equipment/kameras" role="button">zu allen Kameras &raquo;</a></p>
         </div>
+     
         <div class="col-md-4">
           <h2>Beleuchtung</h2>
-          <p><a class="btn btn-default" href="/beleuchtung" role="button">zu allen Leuchtmitteln &raquo;</a></p>
+          <p><a class="btn btn-default" href="/equipment/beleuchtung" role="button">zu allen Leuchtmitteln &raquo;</a></p>
         </div>
+
+        <div class="col-md-4">
+          <h2>Ton</h2>
+          <p><a class="btn btn-default" href="/equipment/ton" role="button">zu allen Ton-Geräten &raquo;</a></p>
+        </div>
+       
         </div>
         <br>
         <br>
